@@ -10,11 +10,13 @@ package laboratory2;
  * @author Guest
  */
 public class Vertex {
-    String name;
+    char name;
     
-    public String getNombre()   {
-        
+    public Vertex(char n){
+        name= n;
     }
-   
-            
+    
+    public char getName(){
+        return name;
+    }        
 }
