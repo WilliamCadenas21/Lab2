@@ -13,8 +13,8 @@ public class Graph {
 
     Vertex vertices[];
     int matrixAd[][];
-    int numVertices;
-    int maxVertices;
+    int numVertices; 
+   int maxVertices;
 
     public Graph(int m) {
         maxVertices = m;
