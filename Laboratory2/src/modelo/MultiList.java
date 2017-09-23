@@ -45,7 +45,6 @@ public class MultiList {
                 System.out.print("->"+edge.getId()+"("+edge.getWeight()+")");
                 edge = edge.getSecondLink();
             }
-            System.out.println("->null");
             aux = aux.getMainLink();
         }
     }

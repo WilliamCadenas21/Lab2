@@ -6,6 +6,7 @@
 package vista;
 
 import javax.swing.JOptionPane;
+import modelo.Laboratory2;
 import modelo.MultiList;
 
 /**
@@ -134,23 +135,32 @@ public class Vista extends javax.swing.JFrame {
     private void jButtonCreateGraphActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateGraphActionPerformed
         //TODO create the direct Graph
         
-        //1.I create the linkedList  
+        //1.I create the linkedList
         MultiList list = new MultiList();
+        
         //2.I get the num of vertices 
         int numberV = Integer.parseInt(JOptionPane.showInputDialog(null,"digite el numero de vertices"));
+        
+        //3.I create the matrix of adjacent        
+        int[][] matrixAd = new int[numberV][numberV];
         //3.Num of edges and the connections 
         int numberE;
         for (int i = 1; i <= numberV; i++) {
             list.addVertex(i, 0);//add to list
             numberE = Integer.parseInt(JOptionPane.showInputDialog(null,"digite el numero de aristas del Vertice:"+i));
             String[] vertexId;
-            if (i==1) JOptionPane.showMessageDialog(null, "La forma de ingresar los datos sera (numero Id del vertice al que apunta,peso de la arista)");
+            
             for (int j = 1; j <= numberE; j++) {
+                if (j==1) JOptionPane.showMessageDialog(null, "La forma de ingresar los datos sera (numero Id del vertice al que apunta,peso de la arista)");
                 vertexId = JOptionPane.showInputDialog(null,"Arista "+j+":").split(",");
                 list.addEdge(i,Integer.parseInt(vertexId[0]),Integer.parseInt(vertexId[1]));//add to list
+                matrixAd[i-1][Integer.parseInt(vertexId[0])-1] = Integer.parseInt(vertexId[1]); 
             }
         }
+        
         list.showList();
+        System.out.println("");
+        Laboratory2.showMatrix(matrixAd);
     }//GEN-LAST:event_jButtonCreateGraphActionPerformed
 
     /**

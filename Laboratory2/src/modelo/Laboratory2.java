@@ -20,5 +20,17 @@ public class Laboratory2 {
         Vista vista = new Vista();
         vista.setVisible(true);
     }
-    
+
+    public static void showMatrix(int[][] m) {
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m.length; j++) {
+                if (j != m.length - 1) {
+                    System.out.print(m[i][j] + ",");
+                } else {
+                    System.out.print(m[i][j]);
+                }
+            }
+            System.out.println("");
+        }
+    }
 }
