@@ -14,10 +14,10 @@ public class Vertex {
     private int id;
     private int weight;
     private Vertex mainLink;
+    private Vertex secondLink;
     private Vertex primero;
     private Vertex ultimo;
     private Vertex aux;
-    private Vertex anteaux;
     private int numOfEdges;
 
     public void addEdge(Vertex vertex) {
@@ -25,14 +25,15 @@ public class Vertex {
         if (primero == null) {
             primero = aux;
             ultimo = aux;
-            aux.setMainLink(null);
+            aux.setSecondLink(null);
             numOfEdges = 1;
         } else {
-            ultimo.setMainLink(aux);
+            ultimo.setSecondLink(aux);
             ultimo = aux;
             numOfEdges++;
         }
         aux.setMainLink(null);
+        aux.setSecondLink(null);
     }
 
     public int getNum() {
@@ -75,13 +76,6 @@ public class Vertex {
         this.aux = aux;
     }
 
-    public Vertex getAnteaux() {
-        return anteaux;
-    }
-
-    public void setAnteaux(Vertex anteaux) {
-        this.anteaux = anteaux;
-    }
 
     public int getNumOfEdges() {
         return numOfEdges;
@@ -99,4 +93,22 @@ public class Vertex {
     public int getId(){
         return id;
     }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public Vertex getSecondLink() {
+        return secondLink;
+    }
+
+    public void setSecondLink(Vertex secondLink) {
+        this.secondLink = secondLink;
+    }
+    
+    
 }
