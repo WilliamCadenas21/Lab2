@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package laboratory2;
+package modelo;
 
 /**
  *
@@ -13,8 +13,8 @@ public class Graph {
 
     Vertex vertices[];
     int matrixAd[][];
-    int numVertices; 
-   int maxVertices;
+    int numVertices;
+    int maxVertices;
 
     public Graph(int m) {
         maxVertices = m;
@@ -23,9 +23,9 @@ public class Graph {
         matrixAd = new int[m][m];
     }
 
-    public int getIndex(char v) {
+    public int getIndex(int v) {
         for (int i = 0; i < numVertices; i++) {
-            if (v == vertices[i].getName()) {
+            if (v == vertices[i].getId()) {
                 return i;
             }
             return i;
@@ -37,9 +37,9 @@ public class Graph {
         return getIndex(v) != -1;
     }
 
-    public void addVertex(char a) {
+    public void addVertex(int a) {
         if (getIndex(a) == -1) {
-            vertices[numVertices] = new Vertex(a);
+            vertices[numVertices] = new Vertex(a,0);
             numVertices++;
         }
     }
